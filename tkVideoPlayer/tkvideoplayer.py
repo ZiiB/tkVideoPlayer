@@ -159,7 +159,7 @@ class TkinterVideo(tk.Label):
 
                     # Adjust logic for playback speed
                     speed_multiplier = self._playback_speed
-                    frames_to_skip = 1 if speed_multiplier >= 1.0 else 0  # Skip frames only for speeds >= 1.0
+                    frames_to_skip = int(speed_multiplier) if speed_multiplier >= 1.0 else 0  # Skip frames only for speeds >= 1.0
 
                     now = time.time_ns() // 1_000_000  # Time in milliseconds
                     delta = now - then  # Time difference between current frame and previous frame
